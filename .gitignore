@@ -4,6 +4,9 @@
 .AppleDouble
 .LSOverride
 
+### Bower
+bower_components/
+
 # Icon must end with two \r
 Icon
 

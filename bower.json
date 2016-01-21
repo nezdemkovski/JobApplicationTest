@@ -1,0 +1,20 @@
+{
+  "name": "JobApplicationTest",
+  "version": "1.0.0",
+  "authors": [
+    "Yuri Yakovlev <contact@yakovlevyuri.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "2.2.0",
+    "angular": "1.4.8",
+    "bootstrap": "3.3.6"
+  }
+}
