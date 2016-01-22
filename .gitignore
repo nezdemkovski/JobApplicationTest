@@ -7,6 +7,13 @@
 ### Bower
 bower_components/
 
+### CSS
+css/*.css
+css/*.css.map
+
+### CodeKit
+*.codekit
+
 # Icon must end with two \r
 Icon
 
