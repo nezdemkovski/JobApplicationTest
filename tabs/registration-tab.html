@@ -1,0 +1,28 @@
+<div ng-controller="registrationFormController as registrationFormCtrl">
+    <form class="form" name="registrationForm" id="registrationForm" ng-submit="registrationFormCtrl.submit(registrationForm.$valid)" novalidate>
+        <h2>Registration Form</h2>
+        <success-registration></success-registration>
+        <div class="form-item">
+            <label for="email_field_signup">Email address</label>
+            <input id="email_field_signup" name="email_field_signup" ng-model="registrationFormCtrl.credentials.email" ng-minlength="5" type="email" required />
+            <span class="error" ng-show="registrationForm.email_field_signup.$error.required && registrationForm.email_field_signup.$dirty">Email can't be blank</span>
+            <span class="error" ng-show="!registrationForm.email_field_signup.$error.required && registrationForm.email_field_signup.$error.email && registrationForm.email_field_signup.$dirty">Email is invalid</span>
+        </div>
+
+        <div class="form-item">
+            <label for="password_signup">New password (at least 6 chars)</label>
+            <input id="password_signup" name="password_signup" ng-model="registrationFormCtrl.credentials.password" ng-minlength="6" ng-maxlength="20" type="password" required />
+            <span class="error" ng-show="registrationForm.email_field_signup.$valid && registrationForm.password_signup.$error.required && registrationForm.password_signup.$dirty">Password can't be blank</span>
+            <span class="error" ng-show="registrationForm.email_field_signup.$valid && !registrationForm.password_signup.$error.required && (registrationForm.password_signup.$error.minlength || registrationForm.password_signup.$error.maxlength) && registrationForm.password_signup.$dirty">Password must be between 6 and 20 characters</span>
+        </div>
+
+        <div class="form-item last">
+            <label for="confirm_password_signup">Confirm password</label>
+            <input id="confirm_password_signup" name="confirm_password_signup" ng-model="user.passwordConfirm" match="registrationFormCtrl.credentials.password" type="password" required />
+            <span class="error" ng-show="registrationForm.password_signup.$valid && registrationForm.confirm_password_signup.$error.required && registrationForm.confirm_password_signup.$dirty">Please confirm your password.</span>
+            <span class="error" ng-show="registrationForm.password_signup.$valid && !registrationForm.confirm_password_signup.$error.required && registrationForm.confirm_password_signup.$error.match && registrationForm.password_signup.$dirty">Passwords do not match.</span>
+        </div>
+
+        <input class="button" value="Sign Up" type="submit" />
+    </form>
+</div>
