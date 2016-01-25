@@ -1,7 +1,9 @@
 <div ng-controller="registrationFormController as registrationFormCtrl">
-    <div ng-show="registrationFormCtrl.isSubmitClicked">{{registrationFormCtrl.message}}</div>
+    <h2>Registration Form</h2>
+    <div class="reg-notification" ng-show="registrationFormCtrl.isSubmitClicked">
+        <h3>{{registrationFormCtrl.message}}</h3>
+    </div>
     <form class="form" name="registrationForm" ng-show="!registrationFormCtrl.isSuccess" id="registrationForm" ng-submit="registrationFormCtrl.submit(registrationForm.$valid)" novalidate>
-        <h2>Registration Form</h2>
         <div class="form-item">
             <label for="email_field_signup">Email address</label>
             <input id="email_field_signup" name="email_field_signup" ng-model="registrationFormCtrl.credentials.email" ng-minlength="5" type="email" required />
