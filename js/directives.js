@@ -1,14 +1,15 @@
 (function() {
-    var app = angular.module('application-directives', []);
+    angular.
+    module('application-directives', [])
 
-    app.directive('loginTab', function() {
+    .directive('loginTab', function() {
         return {
             restrict: 'E',
             templateUrl: 'tabs/login-tab.html'
         };
-    });
+    })
 
-    app.directive('registrationTab', function() {
+    .directive('registrationTab', function() {
         return {
             restrict: 'E',
             templateUrl: 'tabs/registration-tab.html'
