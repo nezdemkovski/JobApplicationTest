@@ -1,0 +1,21 @@
+{
+  "name": "JobApplicationTest",
+  "version": "1.0.0",
+  "authors": [
+    "Yuri Yakovlev <contact@yakovlevyuri.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4.9",
+    "angular-validation-match": "1.7.0",
+    "angular-mocks": "1.4.9",
+    "bootstrap": "3.3.6"
+  }
+}

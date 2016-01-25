@@ -1,0 +1,265 @@
+@import url("../bower_components/bootstrap/less/bootstrap.less");
+@import url("fonts.less");
+@import url("lesshat.less");
+
+@white: #ffffff;
+@black: #000000;
+@black-transparent: rgba(0, 0, 0, .3);
+@black-transparent-hard: rgba(0, 0, 0, .1);
+@gray: #826e79;
+@gray-light: #eeeeee;
+@blue: #1895D7;
+@green: #43c840;
+@green-dark: #3eb43f;
+@green-dark-2: #20b440;
+@gree-light: #a8c88d;
+@red-dark: #991111;
+@red-light: #bf1515;
+@pink: #ad5482;
+
+@default-border-radius: 5px;
+@form-elements-border-radius: 3px;
+
+.clearfix() {
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+.reset-pa-ma() {
+	padding: 0;
+	margin: 0;
+}
+
+* {
+	.box-sizing(border-box);
+}
+
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	background: url('../images/background.jpg') repeat center top @gray;
+	background-size: cover;
+}
+
+a {
+	display: block;
+	color: @pink;
+	text-decoration: none;
+	font-weight: bold;
+	text-align: center;
+	.size(100%);
+}
+
+h2 {
+	font-size: 21px;
+	margin-bottom: 25px;
+}
+
+h3 {
+	font-size: 15px;
+	font-weight: 400;
+	margin: 0;
+}
+
+#content-wrapper {
+	position: relative;
+	margin: 0 auto;
+	width: 450px;
+	padding-top: 100px;
+
+	.authorization-dialog {
+		position: relative;
+		border-radius: @default-border-radius;
+		background-color: @white;
+		.box-shadow(0px 0px 15px 0px @black-transparent);
+
+		ul.tabs {
+			list-style-type: none;
+			.reset-pa-ma();
+			.clearfix();
+
+			li {
+				float: left;
+				height: 60px;
+				width: 50%;
+				box-sizing: border-box;
+				background: @gray-light;
+				text-align: center;
+				cursor: pointer;
+				.transition(background .4s);
+
+				&:first-child,
+				&:first-child a {
+					.border-top-left-radius(@default-border-radius);
+				}
+
+				&:last-child,
+				&:last-child a {
+					.border-top-right-radius(@default-border-radius);
+				}
+
+				&:hover {
+					background-color: @black-transparent-hard;
+				}
+
+				&.active {
+					background: @white;
+
+					a {
+						.icon {
+							opacity: 1;
+						}
+					}
+				}
+
+				a {
+					text-decoration: none;
+
+					.icon {
+						font-size: 33px;
+						padding-top: 18px;
+						position: relative;
+						top: 14px;
+						opacity: .5;
+					}
+				}
+			}
+		}
+
+		.content-tabs {
+			padding: 15px 40px 40px;
+			.clearfix();
+
+			.form {
+
+				label {
+					display: block;
+					width: 100%;
+				}
+
+				input[type="text"],
+				input[type="email"],
+				input[type="password"] {
+					width: 100%;
+					padding: 8px 15px;
+					border: 1px solid @black-transparent;
+					.border-radius(@form-elements-border-radius);
+
+					&:focus{
+						border: @blue 1px solid;
+						outline: none;
+					}
+				}
+
+				.button {
+					.size(100%, 50px);
+					padding: 10px;
+					margin-top: 15px;
+					background: @green;
+					color: @white;
+					font-weight: bold;
+					cursor: pointer;
+					border: none;
+					outline: none;
+					.border-radius(@form-elements-border-radius);
+
+					&:hover:enabled {
+						background: @green-dark;
+					}
+
+					&:active:enabled {
+						background: @green-dark-2;
+					}
+
+					&:disabled {
+						cursor: default;
+						color: @gree-light;
+					}
+				}
+
+				.form-item {
+					position: relative;
+					margin-bottom: 27px;
+
+					&.last {
+						margin-bottom: 20px;
+					}
+
+					.error {
+						display: inline-block;
+						position: absolute;
+						max-width: 450px;
+						z-index: 10;
+						margin: 2px 0 0;
+						padding: 3px 10px;
+						font-size: 12px;
+						font-weight: normal;
+						border-radius: @form-elements-border-radius;
+						color: @white;
+						background-color: @red-light;
+						border-color: @red-dark;
+
+						&:before,
+						&:after {
+							content: '';
+							position: absolute;
+							bottom: 100%;
+							left: 10px;
+							.size(0);
+							border: solid transparent;
+							z-index: 15;
+							pointer-events: none;
+						}
+
+						&:before {
+							border-width: 6px;
+							margin-left: -1px;
+							border-bottom-color: @red-dark;
+						}
+
+						&:after {
+							border-width: 5px;
+							border-bottom-color: @red-light;
+						}
+					}
+				}
+
+				.success-registration {
+					font-size: 14px;
+					margin-bottom: 20px;
+				}
+			}
+
+			.reg-notification {
+				padding-bottom: 20px;
+			}
+
+			.notification {
+				padding: 10px 20px;
+				color: @white;
+				background-color: @green-dark;
+				border-color: @green-dark-2;
+				border-radius: @form-elements-border-radius;
+			}
+
+			.error {
+				.notification();
+				margin-bottom: 20px;
+				background-color: @red-light;
+				border-color: @red-dark;
+			}
+		}
+	}
+
+	.logo {
+		width: 40px;
+		margin: 50px auto 0;
+
+		img	{
+			width: 100%;
+		}
+	}
+}

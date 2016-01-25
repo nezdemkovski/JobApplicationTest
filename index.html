@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="JobApplicationTest">
+    <head>
+        <meta charset="UTF-8">
+        <title>CN Group Job Application</title>
+        <link rel="stylesheet" href="css/front.min.css" />
+    </head>
+    <body>
+        <div id="content-wrapper">
+            <div class="authorization-dialog" ng-controller="PanelController as panel">
+                <ul class="tabs">
+                    <li class="tab" ng-class="{ active:panel.isSelected(1) }">
+                        <a href ng-click="panel.selectTab(1)">
+                            <span class="icon icon-lock"></span>
+                        </a>
+                    </li>
+                    <li class="tab" ng-class="{ active:panel.isSelected(2) }">
+                        <a href ng-click="panel.selectTab(2)">
+                            <span class="icon icon-user"></span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="content-tabs">
+                    <div id="tab1" ng-show="panel.isSelected(1)">
+                        <login-tab></login-tab>
+                    </div>
+                    <div id="tab2" ng-show="panel.isSelected(2)">
+                        <registration-tab></registration-tab>
+                    </div>
+                </div>
+            </div>
+
+            <a class="logo" href="https://github.com/yakovlevyuri/JobApplicationTest" target="_blank"><img src="images/github-logo.svg" alt="Github logo"></a>
+        </div>
+
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>      
+        <script src="js/app.js"></script>
+        <script src="js/directives.js"></script>
+    </body>
+</html>

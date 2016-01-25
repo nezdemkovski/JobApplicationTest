@@ -1,0 +1,24 @@
+<h2>Sign in to the JobApplicationTest</h2>
+<div ng-controller="loginController as vm">
+	<div class="notification" ng-show="vm.currUser">
+		<h3>Logged in as {{vm.currUser.email}}</h3>
+	</div>
+
+	<div class="error" ng-show="!vm.currUser && vm.isSubmitClicked">
+		<h3>Not logged in</h3>
+	</div>
+
+	<form class="form" ng-show="!vm.currUser" ng-submit="vm.login(vm.email, vm.password)">
+	    <div class="form-item">
+	        <label for="email_field_login">Email address</label>
+	        <input id="email_field_login" type="text" ng-model="vm.email"/>
+	    </div>
+
+	    <div class="form-item last">
+	        <label for="password_login">Password</label>
+	        <input id="password_login" type="password" ng-model="vm.password"/>
+	    </div>
+
+	    <input class="button" value="Login" type="submit"/>
+	</form>
+</div>

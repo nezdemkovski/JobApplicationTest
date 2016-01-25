@@ -1,0 +1,24 @@
+{
+  "name": "job-application-test",
+  "version": "1.0.0",
+  "description" : "CN Group Job Application (Simple AngularJS app)",
+  "author": "Yuri Yakovlev",
+  "email" : "contact@yakovlevyuri.com",
+  "url" : "http://yakovlevyuri.com/cngroup",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yakovlevyuri/JobApplicationTest.git"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-less": "^0.11.4",
+    "grunt-contrib-watch": "^0.6.1",
+    "time-grunt": "^1.0.0",
+    "grunt-notify": "^0.3.1",
+    "jit-grunt": "~0.9.1"
+  }
+}
