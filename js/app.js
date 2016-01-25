@@ -1,32 +1,73 @@
 (function() {
     var app = angular.module('JobApplicationTest', ['application-directives', 'validation.match']);
 
-    app.controller('PanelController', function() {
-        this.tab = 1;
+    app.constant('users', [
+        { email: 'john@doe.com', password: 'johndoe' },
+        { email: 'contact@yakovlevyuri.com', password: 'yakovlevyuri' },
+        { email: 'test@email.com', password: 'test' }
+    ]);
 
-        this.selectTab = function(setTab) {
-            this.tab = setTab;
+    app.controller('PanelController', function() {
+        var vm = this;
+        vm.tab = 1;
+
+        vm.selectTab = function(setTab) {
+            vm.tab = setTab;
         }
 
         this.isSelected = function(checkTab) {
-            return this.tab === checkTab;
+            return vm.tab === checkTab;
         }
     });
 
     app.controller('registrationFormController', function() {
-        this.message = "";
+        var vm = this;
 
-        this.credentials = {
+        vm.message = "";
+        vm.isSubmitClicked = false;
+
+        vm.credentials = {
             email: "",
             password: ""
         };
 
-        this.submit = function(isValid) {
+        vm.submit = function(isValid) {
+            vm.isSubmitClicked = true;
+            vm.isSuccess = false;
+
             if (isValid) {
-                this.message = "New user with email " + this.credentials.email + " was created. Congratulations.";
+                vm.message = "New user with email " + this.credentials.email + " was created. Congratulations.";
+                vm.isSuccess = true;
             } else {
-                this.message = "There are still invalid fields below";
+                vm.message = "There are still invalid fields below";
             }
         };
     });
+    
+     app.controller('loginController', ['users', function(users) {
+         var vm = this;
+
+         vm.isSubmitClicked = false;
+
+         vm.checkUser = function(user) {
+            var ifExists = false;
+
+            angular.forEach(users, function(value, key) {
+                if (user.email === value.email && user.password === value.password) {
+                    ifExists = true;
+                }
+            });
+
+            return ifExists;
+        };
+
+         vm.login = function(userEmail, pwd) {
+            var newUser = {email: userEmail, password: pwd};
+             vm.isSubmitClicked = true;
+
+            if (vm.checkUser(newUser)) {
+                vm.currUser = newUser;
+            }
+        }
+    }]);
 })();

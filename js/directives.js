@@ -14,11 +14,4 @@
             templateUrl: 'tabs/registration-tab.html'
         };
     });
-
-    app.directive('successRegistration', function() {
-        return {
-            restrict: 'E',
-            templateUrl: 'tabs/success-registration.html'
-        };
-    });
 })();

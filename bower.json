@@ -13,8 +13,9 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "1.4.8",
-    "angular-cookies": "1.4.8",
+    "angular": "1.4.9",
+    "angular-validation-match": "1.7.0",
+    "angular-mocks": "1.4.9",
     "bootstrap": "3.3.6"
   }
 }

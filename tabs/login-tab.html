@@ -1,14 +1,24 @@
 <h2>Sign in to the JobApplicationTest</h2>
-<form class="form">
-    <div class="form-item">
-        <label for="email_field_login">Email address</label>
-        <input id="email_field_login" type="text" />
-    </div>
+<div ng-controller="loginController as vm">
+	<div ng-show="vm.currUser">
+		<h1>Logged in as {{vm.currUser.email}}</h1>
+	</div>
 
-    <div class="form-item last">
-        <label for="password_login">Password</label>
-        <input id="password_login" type="password" />
-    </div>
+	<div ng-show="!vm.currUser && vm.isSubmitClicked">
+		<h1>Not logged in</h1>
+	</div>
 
-    <input class="button" value="Login" type="button" />
-</form>
+	<form class="form" ng-show="!vm.currUser" ng-submit="vm.login(vm.email, vm.password)">
+	    <div class="form-item">
+	        <label for="email_field_login">Email address</label>
+	        <input id="email_field_login" type="text" ng-model="vm.email"/>
+	    </div>
+
+	    <div class="form-item last">
+	        <label for="password_login">Password</label>
+	        <input id="password_login" type="password" ng-model="vm.password"/>
+	    </div>
+
+	    <input class="button" value="Login" type="submit"/>
+	</form>
+</div>
